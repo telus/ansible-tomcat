@@ -3,8 +3,8 @@
   template:
     src: etc/tomcat7/server.xml
     dest: /etc/tomcat7/server.xml
-    owner: root
-    group: root
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_group }}"
     mode: 0644
   notify: Restart Service | tomcat7
 
@@ -21,5 +21,6 @@
     name: tomcat7
     state: started
     enabled: yes
+  when: tomcat_enabled
   tags:
     - tomcat

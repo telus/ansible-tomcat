@@ -7,3 +7,4 @@
   roles:
     - role: geerlingguy.java
     - role: ansible-tomcat
+      tomcat_enabled: false

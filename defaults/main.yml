@@ -1,4 +1,6 @@
 ---
+tomcat_enabled: true
+
 tomcat_user: root
 tomcat_group: staff
 
