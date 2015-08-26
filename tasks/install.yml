@@ -10,8 +10,10 @@
     - software-installation
     - using-apt
 
-- name: Ensure tomcat is running.
+- name: Start Service | tomcat7
   service:
     name: tomcat7
     state: started
     enabled: yes
+  tags:
+    - tomcat
