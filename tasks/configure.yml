@@ -15,3 +15,11 @@
     line: "1catalina.org.apache.juli.FileHandler.directory = {{ tomcat_log_root }}"
     state: present
   notify: Reload Service | tomcat7  
+
+- name: Start Service | tomcat7
+  service:
+    name: tomcat7
+    state: started
+    enabled: yes
+  tags:
+    - tomcat
