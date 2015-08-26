@@ -33,4 +33,3 @@ Contributors
 ------------
 * [Ben Visser](https://github.com/noqcks)
 * Thank you to [Jeff Geerling](http://jeffgeerling.com/), [whose repository](https://github.com/geerlingguy/ansible-role-tomcat6) served as the starting point for this repo
-
