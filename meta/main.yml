@@ -1,0 +1,22 @@
+---
+dependencies:
+  - role: geerlingguy.java
+    java_packages:
+      - openjdk-7-jdk
+
+galaxy_info:
+  author: "Ben Visser"
+  company: "TELUS digital"
+  description: "Tomcat 7 for Ubuntu"
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+      - lucid
+      - precise
+      - trusty
+      - utopic
+      - vivid
+  categories:
+    - development
+    - web

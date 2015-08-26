@@ -1,0 +1,11 @@
+---
+- name: Install Packages | apt
+  apt:
+    state: latest
+    pkg: "{{ item }}"
+  with_items:
+    - tomcat7
+  tags:
+    - tomcat
+    - software-installation
+    - using-apt
