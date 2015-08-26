@@ -37,3 +37,4 @@ script:
   # Debugging.
   - sudo cat /var/log/tomcat7/catalina.out
   - sudo netstat -plunt
+
