@@ -8,13 +8,13 @@
     mode: 0644
   notify: Restart Service | tomcat7
 
-# - name: Configure | tomcat7 | change logging dir
-#   lineinfile:
-#     dest: "/etc/tomcat7/logging.properties"
-#     regexp: "^1catalina.org.apache.juli.FileHandler.directory"
-#     line: "1catalina.org.apache.juli.FileHandler.directory = {{ tomcat_log_root }}"
-#     state: present
-#   notify: Reload Service | tomcat7  
+- name: Configure | tomcat7 | change logging dir
+  lineinfile:
+    dest: "/etc/tomcat7/logging.properties"
+    regexp: "^1catalina.org.apache.juli.FileHandler.directory"
+    line: "1catalina.org.apache.juli.FileHandler.directory = {{ tomcat_log_root }}"
+    state: present
+  notify: Reload Service | tomcat7  
 
 - name: Start Service | tomcat7
   service:

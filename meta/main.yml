@@ -1,8 +1,7 @@
 ---
 dependencies:
-  - role: geerlingguy.java
-    java_packages:
-      - openjdk-7-jdk
+  - role: telusdigital.java
+    java_version: 7
 
 galaxy_info:
   author: "Ben Visser"
