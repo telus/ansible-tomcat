@@ -1,0 +1,12 @@
+---
+tomcat_enabled: true
+
+tomcat_user: root
+tomcat_group: staff
+
+tomcat_hostname: "{{ ansible_fqdn }}"
+tomcat_server_port: 8005
+tomcat_catalina_port: 8983
+tomcat_catalina_redirect_port: 8443
+
+tomcat_log_root: "{{ log_root | default('/var/log') }}/tomcat7"
