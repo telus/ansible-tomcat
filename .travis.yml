@@ -18,7 +18,7 @@ install:
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
   # Install required dependencies.
-  - ansible-galaxy install geerlingguy.java
+  - ansible-galaxy install telusdigital.java
 
 script:
   # Check the role/playbook's syntax.
