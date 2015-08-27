@@ -7,6 +7,8 @@
     group: "{{ tomcat_group }}"
     mode: 0644
   notify: Restart Service | tomcat7
+  tags:
+    - tomcat
 
 - name: Configure | tomcat7 | change logging dir
   lineinfile:
@@ -14,7 +16,9 @@
     regexp: "^1catalina.org.apache.juli.FileHandler.directory"
     line: "1catalina.org.apache.juli.FileHandler.directory = {{ tomcat_log_root }}"
     state: present
-  notify: Reload Service | tomcat7  
+  notify: Restart Service | tomcat7
+  tags:
+    - tomcat
 
 - name: Start Service | tomcat7
   service:
