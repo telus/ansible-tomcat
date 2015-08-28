@@ -2,9 +2,8 @@
 - hosts: localhost
   remote_user: root
   vars:
-    java_packages:
-      - openjdk-7-jdk
+    java_version: 7
   roles:
-    - role: geerlingguy.java
+    - role: telusdigital.java
     - role: ansible-tomcat
       tomcat_enabled: false
