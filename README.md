@@ -3,6 +3,7 @@
 [tomcat](https://tomcat.apache.org/index.html) An open-source java web server
 
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
+[![Build Status](https://travis-ci.org/telusdigital/ansible-tomcat.svg?branch=master)](https://travis-ci.org/telusdigital/ansible-tomcat)
 
 Tunables
 --------
