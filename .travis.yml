@@ -1,40 +1,16 @@
 ---
-language: python
-python: "2.7"
-
-env:
-  - SITE=test-install.yml
-
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y curl
-  - sudo netstat -plunt
+sudo: required
+# docker is required to run tests
+services: docker
 
 install:
-  # Install Ansible.
-  - pip install ansible
-
-  # Add ansible.cfg to pick up roles path.
-  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
-
-  # Install required dependencies.
-  - ansible-galaxy install telusdigital.java
+  - bundle install
 
 script:
-  # Check the role/playbook's syntax.
-  - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
+  # run kitchen tests (destroy, create, converge, setup, verify and destroy)
+  - bundle exec kitchen test
 
-  # Run the role/playbook with ansible-playbook.
-  - "ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo"
-
-  # Run the role/playbook again, checking to make sure it's idempotent.
-  - >
-    ansible-playbook -i tests/inventory tests/$SITE --connection=local --sudo
-    | grep -q 'changed=0.*failed=0'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
-
-  # Debugging.
-  - sudo cat /var/log/tomcat7/catalina.out
-  - sudo netstat -plunt
-
+notifications:
+  slack:
+  # to generate token see README.md
+    secure: M4bYZRPc6zlo16bOpc38HqTng4KK6JNGsR045kga3bp8FyXhfcogwrAIH/vHzx/xVvhEtVqizSajd07ttzTanFZrHeSK1JoHqwGHk6y7ebxuphkWe0SMt2U+XgSmQvVCi3ujtFgk00bUhRiZo1kr5xalGMwF/se0rwanRjAyUpjqzC9QrCo8FfuHJrKSsPhE3FF978d6tqz4dXPbojIN+GDXiuZGctJ748t8u+eGmQAU5mohRolqdXyabwoyQBlPHEmRy1auR0sjeSsqWwO5rFceCFnzoitwFq8/O8rJZWPJxDUhSqio+uO8CkdHEb8EXdJSIJmE/3l3uLocSKuX1fQu1A6kSDn/pl9sA6LD6Ky9fBBS+OOXLiRyrNQVAO6N9FGw9/zqRzFmmaj4zwHggeTKUPYl//+f5WSQuzJNwQjQhxMDlE9znj+zd7OxouO2tr+U+BxurLqHe/sQuBT9ufOOjcxQnY6GZxwTKTN0QZScVp/BCPGjLIaadae74OQJPUHupJfDtbdDg3P+QHQvtVt4d4JTZ7kihzysRHSlsc1Uem6h8YVQWuZ6vZj3ypXskT2Y+KRTiUXbyqltfM6cY9jvYthBjuOmsLcY1PcQxOcRCjKcgCC3l4wKgJ5RjVK4ofpBV68aUW05v63dnxHJWAZLFx15xuWjxpHdu+ce1qI=
