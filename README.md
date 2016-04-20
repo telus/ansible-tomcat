@@ -7,7 +7,7 @@
 
 Tunables
 --------
-* `tomcat_user` (string) - User to run tomcat as 
+* `tomcat_user` (string) - User to run tomcat as
 * `tomcat_group` (string) - Group to run tomcat as
 * `tomcat_hostname` (string) - The hostname for the server
 * `tomcat_server_port` (string) - The port tomcat will run on
@@ -33,5 +33,6 @@ License
 Contributors
 ------------
 * [Ben Visser](https://github.com/noqcks)
+* [Nikki](https://github.com/killerwails)
 * Thank you to [Jeff Geerling](http://jeffgeerling.com/), [whose repository](https://github.com/geerlingguy/ansible-role-tomcat6) served as the starting point for this repo
 
